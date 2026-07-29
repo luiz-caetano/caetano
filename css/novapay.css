@@ -1,0 +1,12 @@
+/* ============================================================
+   NOVAPAY — estudo de caso (assinatura violeta / fintech)
+   ============================================================ */
+:root{ --proj:#5B45E0; }
+
+.proj-cover, .proj-shots .shot{transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;}
+.proj-cover:hover, .proj-shots .shot:hover{
+  border-color:var(--proj);
+  box-shadow:0 16px 40px rgba(91,69,224,0.16);
+}
+.proj-tags .tag:hover{border-color:var(--proj);color:var(--proj);}
+.proj-footer .next a.t:hover{color:var(--proj);}

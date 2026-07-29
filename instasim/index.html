@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Instagram</title>
+<link rel="stylesheet" href="instasim.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="editorHint" class="editor-hint" hidden>
+  <span>Clique nos textos e fotos pra editar. Tudo fica salvo neste navegador.</span>
+  <button id="hintClose" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+</div>
+
+<div class="ig-page">
+  <header class="ig-header">
+    <div class="ig-header-inner">
+
+      <div class="ig-avatar-wrap" data-upload-slot="avatar">
+        <img id="avatarImg" class="ig-avatar-img" hidden alt="Foto de perfil">
+        <div id="avatarEmpty" class="ig-avatar-empty"><i class="fa-solid fa-user"></i></div>
+        <div class="ig-avatar-badge"><i class="fa-solid fa-camera"></i></div>
+      </div>
+
+      <div class="ig-username-row">
+        <h1 id="usernameEl" class="ig-username" data-editable-text spellcheck="false">seu_usuario</h1>
+        <button id="verifiedBtn" class="ig-verified-badge" title="Alternar selo verificado"><i class="fa-solid fa-circle-check"></i></button>
+        <div class="ig-menu-wrap">
+          <button id="menuBtn" class="ig-icon-plain" title="Mais opções"><i class="fa-solid fa-ellipsis"></i></button>
+          <div id="menuDropdown" class="ig-menu-dropdown" hidden>
+            <button data-menu-copy><i class="fa-solid fa-link"></i> Copiar link do perfil</button>
+            <button data-menu-close><i class="fa-solid fa-share"></i> Compartilhar perfil</button>
+            <button data-menu-close><i class="fa-solid fa-ban"></i> Restringir</button>
+            <button data-menu-close class="ig-menu-danger"><i class="fa-solid fa-triangle-exclamation"></i> Denunciar</button>
+            <button data-menu-close>Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ig-stats">
+        <div class="ig-stat"><span id="postsEl" class="ig-stat-num" data-editable-text>0</span> publicações</div>
+        <div class="ig-stat"><span id="followersEl" class="ig-stat-num" data-editable-text>0</span> seguidores</div>
+        <div class="ig-stat"><span id="followingEl" class="ig-stat-num" data-editable-text>0</span> seguindo</div>
+      </div>
+
+      <div class="ig-namebio">
+        <div id="nameEl" class="ig-name" data-editable-text>Nome do cliente</div>
+        <div id="bioEl" class="ig-bio" data-editable-text>Edite essa bio pra mostrar o posicionamento ideal</div>
+        <div id="linkRow" class="ig-link-row">
+          <a id="linkAnchor" class="ig-link" target="_blank" rel="noopener">
+            <i class="fa-solid fa-link"></i><span id="linkTextEl" data-editable-text>Adicionar link</span>
+          </a>
+          <button id="editLinkUrlBtn" class="ig-link-edit-btn" title="Definir URL do link"><i class="fa-solid fa-pen"></i></button>
+        </div>
+      </div>
+
+      <div class="ig-actions">
+        <button id="followBtn" class="ig-btn ig-btn-primary">Seguir</button>
+        <button class="ig-btn ig-btn-secondary">Enviar mensagem</button>
+        <button class="ig-btn ig-icon-btn" title="Sugestões"><i class="fa-solid fa-user-plus"></i></button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="ig-highlights-outer">
+    <div id="highlightsRow" class="ig-highlights-row"></div>
+  </div>
+
+  <nav class="ig-tabs">
+    <button class="ig-tab active" data-tab="posts" title="Publicações"><i class="fa-solid fa-table-cells"></i></button>
+    <button class="ig-tab" data-tab="reels" title="Reels"><i class="fa-solid fa-clapperboard"></i></button>
+    <button class="ig-tab" data-tab="repost" title="Reposts"><i class="fa-solid fa-arrows-rotate"></i></button>
+    <button class="ig-tab" data-tab="tagged" title="Marcadas"><i class="fa-regular fa-address-card"></i></button>
+  </nav>
+
+  <div id="igGrid" class="ig-grid"></div>
+
+  <div id="igEmptyTab" class="ig-empty-tab" hidden>
+    <div class="ig-empty-icon"><i class="fa-regular fa-face-smile"></i></div>
+    <p>Nada por aqui ainda</p>
+  </div>
+</div>
+
+<button id="editToggle" class="editor-fab"><i class="fa-solid fa-pen"></i> Editar</button>
+
+<div id="editorBar" class="editor-bar" hidden>
+  <button id="btnExport" title="Baixar backup"><i class="fa-solid fa-download"></i> Exportar</button>
+  <button id="btnImport" title="Carregar backup"><i class="fa-solid fa-upload"></i> Importar</button>
+  <button id="btnReset" title="Voltar ao modelo em branco"><i class="fa-solid fa-broom"></i> Limpar tudo</button>
+</div>
+
+<input type="file" id="fileInput" accept="image/*" hidden>
+<input type="file" id="importFile" accept="application/json" hidden>
+
+<script src="instasim.js"></script>
+</body>
+</html>

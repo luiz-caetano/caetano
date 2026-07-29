@@ -1,0 +1,12 @@
+/* ============================================================
+   12TWILIGHTS — estudo de caso (assinatura ciano / cyberpunk)
+   ============================================================ */
+:root{ --proj:#0FB8AE; }
+
+.proj-cover, .proj-shots .shot{transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;}
+.proj-cover:hover, .proj-shots .shot:hover{
+  border-color:var(--proj);
+  box-shadow:0 16px 40px rgba(15,184,174,0.16);
+}
+.proj-tags .tag:hover{border-color:var(--proj);color:var(--proj);}
+.proj-footer .next a.t:hover{color:var(--proj);}

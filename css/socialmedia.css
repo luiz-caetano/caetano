@@ -1,0 +1,34 @@
+/* ============================================================
+   SOCIAL MEDIA — grade de artes/posts
+   ============================================================ */
+.wrap > .eyebrow{color:var(--accent-strong);}
+
+.gallery-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap:20px;
+}
+.g-item{
+  aspect-ratio: 1136 / 1420;   /* proporção retrato das artes */
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--panel);
+  transition: all 0.3s ease;
+  cursor:pointer;
+}
+.g-item:hover{
+  border-color:var(--accent-strong);
+  transform:scale(1.02);
+  box-shadow:0 15px 35px rgba(85,255,0,0.14);
+}
+.g-item img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  display:block;
+}
+@media (max-width:520px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+}
