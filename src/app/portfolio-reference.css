@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&family=Unbounded:wght@400;500;700;800&display=swap');
+
+#performancePortfolio {
+  --ref-page-a: #0f0817;
+  --ref-page-b: #24153b;
+  --ref-page-c: #4d3380;
+  --ref-panel: #120b1d;
+  --ref-line: rgb(196 181 253 / 16%);
+  --ref-line-strong: rgb(196 181 253 / 38%);
+  --ref-text: #f6f3ff;
+  --ref-muted: #a99fc4;
+  --ref-dim: #c8bce8;
+  --ref-accent: #a78bfa;
+  --ref-accent-strong: #8b5cf6;
+  --ref-on-accent: #160d26;
+  min-height: 100vh;
+  overflow: clip;
+  background: linear-gradient(145deg, var(--ref-page-a) 0%, var(--ref-page-b) 48%, var(--ref-page-c) 100%) fixed;
+  color: var(--ref-text);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.55;
+}
+
+#performancePortfolio *, #performancePortfolio *::before, #performancePortfolio *::after { box-sizing: border-box; }
+#performancePortfolio a { color: inherit; text-decoration: none; }
+#performancePortfolio button { color: inherit; font: inherit; }
+#performancePortfolio :focus-visible { outline: 2px solid var(--ref-accent); outline-offset: 3px; }
+#performancePortfolio .perfHeader { position: sticky; top: 0; z-index: 50; overflow: visible; border-bottom: 1px solid var(--ref-line); background-color: rgb(15 8 23 / 88%); backdrop-filter: blur(12px); }
+#performancePortfolio .perfHeader.perfPointerActive { border-bottom-color: var(--ref-line-strong); }
+#performancePortfolio .perfNav { width: min(1100px, calc(100% - 48px)); height: 64px; gap: 16px; }
+#performancePortfolio .perfNav, #performancePortfolio .perfNav * { text-transform: none !important; letter-spacing: 0; }
+#performancePortfolio .perfNavLinks { gap: 32px; color: var(--ref-muted); font: 400 14px "Montserrat", sans-serif; }
+#performancePortfolio .perfNavLinks a:hover { color: var(--ref-text); }
+#performancePortfolio .perfLogo { color: var(--ref-dim); font: 500 15px "Montserrat", sans-serif; }
+#performancePortfolio .perfLogo span { color: var(--ref-accent); }
+#performancePortfolio .perfButton { min-height: 42px; padding: 10px 18px; border-radius: 4px; font: 600 13px "Montserrat", sans-serif; }
+#performancePortfolio .perfButtonPrimary { background: var(--ref-accent); color: var(--ref-on-accent); }
+#performancePortfolio .perfButtonPrimary:hover { background: #c4b5fd; }
+#performancePortfolio .perfButtonOutline { border-color: var(--ref-line-strong); color: var(--ref-text); }
+#performancePortfolio .perfButtonOutline:hover { border-color: var(--ref-accent); color: var(--ref-accent); }
+#performancePortfolio .refContainer { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
+#performancePortfolio .refPoster { padding: 56px 0 40px; }
+#performancePortfolio .refPoster p { font: 400 clamp(36px, 7vw, 74px)/1.04 "Anton", Impact, sans-serif; letter-spacing: .005em; text-transform: uppercase; }
+#performancePortfolio .refPoster span { color: var(--ref-dim); opacity: .85; }
+#performancePortfolio .refMain { max-width: none; padding: 0 0 32px; margin: 0; background: transparent; }
+#performancePortfolio .refSlide { position: relative; scroll-margin-top: 84px; padding: 40px; margin-bottom: 28px; border: 1px solid var(--ref-line); border-radius: 4px; background: var(--ref-panel); }
+#performancePortfolio .refSlideHead { margin-bottom: 32px; }
+#performancePortfolio .refSlideHead h2 { max-width: 720px; font: 500 clamp(20px, 3vw, 30px)/1.2 "Unbounded", "Montserrat", sans-serif; letter-spacing: .005em; text-transform: uppercase; }
+#performancePortfolio .refSlideHead p { max-width: 540px; margin-top: 12px; color: var(--ref-muted); font-size: 14px; }
+#performancePortfolio .refHero { padding-block: 28px 32px; }
+#performancePortfolio .refBracket { position: absolute; color: var(--ref-muted); font-size: 11px; white-space: nowrap; }
+#performancePortfolio .refTag1 { top: 36%; left: 4%; }
+#performancePortfolio .refTag2 { top: 5%; left: 38%; }
+#performancePortfolio .refTag3 { top: 17%; right: 5%; }
+#performancePortfolio .refTag4 { bottom: 116px; left: 6%; }
+#performancePortfolio .refTag5 { bottom: 116px; left: 54%; }
+#performancePortfolio .refTag6 { top: 46%; right: 6%; }
+#performancePortfolio .refYear { position: absolute; top: 20px; right: 28px; color: var(--ref-dim); font-size: 12px; }
+#performancePortfolio .refHeroStage { position: relative; display: grid; min-height: 430px; place-items: center; margin-top: 28px; }
+#performancePortfolio .refFrame { position: absolute; display: flex; flex-direction: column; gap: 3px; padding: 18px 20px; border: 1px solid var(--ref-line-strong); }
+#performancePortfolio .refFrame b { font: 500 clamp(24px, 3vw, 38px)/1.1 "Unbounded", sans-serif; }
+#performancePortfolio .refFrame span { max-width: 150px; color: var(--ref-dim); font-size: 11px; }
+#performancePortfolio .refFrameOne { top: 0; left: 16%; width: 29%; height: 92%; background: linear-gradient(160deg, #7c3aed 0%, #3a1a6e 55%, #1a0d33 100%); animation: refFrameIn .8s cubic-bezier(.2,.7,.2,1) both; }
+#performancePortfolio .refFrameTwo { top: 12%; left: 46%; width: 23%; height: 68%; background: linear-gradient(200deg, #b39cfb 0%, #5b2ea8 50%, #22103f 100%); animation: refFrameIn .8s .15s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes refFrameIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+#performancePortfolio .refHeroStage h1 { position: relative; z-index: 2; max-width: 860px; padding: 0 12px; font: 800 clamp(25px, 4.7vw, 54px)/1.12 "Unbounded", sans-serif; letter-spacing: -.02em; text-align: center; text-transform: uppercase; }
+#performancePortfolio .refHeroStage h1 em { color: #fff; font-style: normal; }
+#performancePortfolio .refHeroFoot { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-top: 28px; }
+#performancePortfolio .refHeroFoot > div:first-child strong, #performancePortfolio .refHeroFoot > div:first-child span { display: block; }
+#performancePortfolio .refHeroFoot > div:first-child strong { font-size: 13px; font-weight: 700; }
+#performancePortfolio .refHeroFoot > div:first-child span { max-width: 240px; color: var(--ref-muted); font-size: 11px; }
+#performancePortfolio .refHeroActions { display: flex; flex-wrap: wrap; gap: 12px; }
+#performancePortfolio .refAboutTop { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 30px; }
+#performancePortfolio .refAboutTop h2 { font: 500 clamp(20px, 3vw, 30px) "Unbounded", sans-serif; text-transform: uppercase; }
+#performancePortfolio .refAboutTop p { display: flex; max-width: 340px; gap: 12px; color: var(--ref-dim); font-size: 12px; }
+#performancePortfolio .refAboutTop p svg { width: 20px; flex: 0 0 20px; color: var(--ref-accent); }
+#performancePortfolio .refStatGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+#performancePortfolio .refStat { display: flex; min-height: 132px; flex-direction: column; justify-content: center; padding: 25px 20px; border: 1px solid var(--ref-line-strong); }
+#performancePortfolio .refStat strong { margin-bottom: 8px; font: 500 clamp(28px, 3.6vw, 40px)/1.1 "Unbounded", sans-serif; }
+#performancePortfolio .refStat > span { color: var(--ref-dim); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+#performancePortfolio .refNote { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--ref-dim); font-size: 12px; text-align: center; }
+#performancePortfolio .refNote::before, #performancePortfolio .refNote::after { color: var(--ref-line-strong); font: 200 44px/1 "Montserrat", sans-serif; }
+#performancePortfolio .refNote::before { content: "{"; }
+#performancePortfolio .refNote::after { content: "}"; }
+#performancePortfolio .refCaseList { display: grid; gap: 24px; }
+#performancePortfolio .refCase { border: 1px solid var(--ref-line); }
+#performancePortfolio .refCaseTop { display: grid; grid-template-columns: minmax(240px, 360px) minmax(0, 1fr); gap: 28px; padding: 26px; }
+#performancePortfolio .refPreview { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; padding: 0; border: 1px solid var(--ref-line-strong); background: #1a1128; cursor: pointer; }
+#performancePortfolio .refPreview .perfPreviewMedia { position: absolute; inset: 0; }
+#performancePortfolio .refPreview .perfPreviewMedia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+#performancePortfolio .refPreview .perfThumbnailFallback { background: linear-gradient(145deg, #241a34, #42315c 58%, #17131e); }
+#performancePortfolio .refPlay { position: absolute; z-index: 1; top: 50%; left: 50%; display: grid; width: 56px; height: 56px; place-items: center; border-radius: 50%; background: rgb(18 11 29 / 78%); color: var(--ref-accent); transform: translate(-50%, -50%); transition: background .2s ease, color .2s ease; }
+#performancePortfolio .refPlay svg { width: 28px; height: 28px; }
+#performancePortfolio .refPreview:hover .refPlay { background: var(--ref-accent); color: var(--ref-on-accent); }
+#performancePortfolio .refCaseInfo { display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
+#performancePortfolio .refCaseInfo h3 { font: 500 17px/1.35 "Unbounded", sans-serif; }
+#performancePortfolio .refCaseInfo p { margin-top: 8px; color: var(--ref-muted); font-size: 12px; }
+#performancePortfolio .refCaseLink { display: inline-flex; align-items: center; gap: 9px; color: var(--ref-accent); font-size: 12px; }
+#performancePortfolio .refCaseLink:hover { color: #c4b5fd; }
+#performancePortfolio .refCaseLink svg { width: 17px; height: 17px; }
+#performancePortfolio .refMetrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0 26px 26px; }
+#performancePortfolio .refMetric { min-width: 0; padding: 17px 15px; border: 1px solid var(--ref-line-strong); }
+#performancePortfolio .refMetric strong { display: block; margin-bottom: 6px; font: 500 21px/1.15 "Unbounded", sans-serif; }
+#performancePortfolio .refMetric .perfMetric-emphasis-mid { color: #c4b5fd; }
+#performancePortfolio .refMetric .perfMetric-emphasis-high, #performancePortfolio .refMetric .perfMetric-emphasis-max { color: #ddd0ff; }
+#performancePortfolio .refMetric .perfMetric-emphasis-time { color: #e9a8ff; }
+#performancePortfolio .refMetric > span { display: block; color: var(--ref-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; }
+#performancePortfolio .refMetric small { display: block; margin-top: 7px; color: var(--ref-accent); font-size: 10px; }
+#performancePortfolio .refBenefits { padding: 0; border-top: 1px solid var(--ref-line-strong); list-style: none; }
+#performancePortfolio .refBenefits li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; align-items: center; padding: 17px 0 15px; border-bottom: 1px solid var(--ref-line-strong); }
+#performancePortfolio .refBenefits h3 { font: 500 clamp(13px, 1.7vw, 16px)/1.35 "Unbounded", sans-serif; text-transform: uppercase; }
+#performancePortfolio .refBenefits li > svg { width: 18px; height: 18px; color: var(--ref-accent); transform: rotate(45deg); }
+#performancePortfolio .refBenefits p { grid-column: 1 / -1; max-width: 620px; color: var(--ref-muted); font-size: 13px; }
+#performancePortfolio .refServices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+#performancePortfolio .refService { display: flex; min-height: 92px; align-items: center; gap: 14px; padding: 18px; border: 1px solid var(--ref-line-strong); font-size: 12px; font-weight: 500; line-height: 1.45; }
+#performancePortfolio .refService svg { width: 20px; height: 20px; flex: 0 0 20px; color: var(--ref-accent); }
+#performancePortfolio .refShorts .perfVideoGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+#performancePortfolio .refShorts .perfVideoThumbnail { aspect-ratio: 9 / 14; border-color: var(--ref-line-strong); background: #1a1128; }
+#performancePortfolio .refShorts .perfPlayButton { background: var(--ref-accent); color: var(--ref-on-accent); }
+#performancePortfolio .refShorts .perfVideoMeta > span, #performancePortfolio .refShorts .perfVideoMeta svg { color: var(--ref-accent); }
+#performancePortfolio .refContactTitle { font: 700 clamp(23px, 3.6vw, 38px)/1.15 "Unbounded", sans-serif; text-transform: uppercase; }
+#performancePortfolio .refContactLead { max-width: 480px; margin: 14px 0 30px; color: var(--ref-muted); font-size: 14px; }
+#performancePortfolio .refContactGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+#performancePortfolio .refContactGrid a { display: flex; min-width: 0; align-items: center; gap: 15px; padding: 18px; border: 1px solid var(--ref-line-strong); background: transparent; transition: border-color .2s ease, background .2s ease; }
+#performancePortfolio .refContactGrid a:hover { border-color: var(--ref-accent); background: rgb(167 139 250 / 7%); }
+#performancePortfolio .refContactGrid a > svg { width: 26px; height: 26px; flex: 0 0 26px; color: var(--ref-accent); }
+#performancePortfolio .refContactGrid a > span { min-width: 0; }
+#performancePortfolio .refContactGrid small, #performancePortfolio .refContactGrid strong { display: block; }
+#performancePortfolio .refContactGrid small { margin-bottom: 3px; color: var(--ref-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; }
+#performancePortfolio .refContactGrid strong { overflow-wrap: anywhere; font-size: 13px; font-weight: 600; }
+#performancePortfolio .refFooter { padding: 20px 0 48px; color: var(--ref-muted); font-size: 12px; text-align: center; }
+#performancePortfolio .refFooter .refContainer { width: min(1100px, calc(100% - 48px)); }
+#performancePortfolio .perfReveal { transition-duration: .55s; }
+
+@media (max-width: 900px) {
+  #performancePortfolio .refBracket { display: none; }
+  #performancePortfolio .refServices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  #performancePortfolio .perfNav { width: calc(100% - 32px); }
+  #performancePortfolio .perfNavLinks { display: none; }
+  #performancePortfolio .refContainer, #performancePortfolio .refFooter .refContainer { width: calc(100% - 28px); }
+  #performancePortfolio .refPoster { padding: 38px 0 26px; }
+  #performancePortfolio .refSlide { padding: 27px 20px; margin-bottom: 17px; }
+  #performancePortfolio .refHeroStage { min-height: 360px; }
+  #performancePortfolio .refFrameOne { left: 3%; width: 50%; height: 88%; }
+  #performancePortfolio .refFrameTwo { top: 14%; left: 42%; width: 48%; height: 62%; }
+  #performancePortfolio .refHeroStage h1 { max-width: 580px; font-size: clamp(26px, 6vw, 42px); }
+  #performancePortfolio .refTag4, #performancePortfolio .refTag5 { bottom: 130px; }
+  #performancePortfolio .refStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  #performancePortfolio .refStat { min-height: 112px; padding: 19px 15px; }
+  #performancePortfolio .refNote { grid-column: 1 / -1; padding: 4px 0; }
+  #performancePortfolio .refNote:last-child { order: 7; }
+  #performancePortfolio .refNote::before, #performancePortfolio .refNote::after { font-size: 32px; }
+  #performancePortfolio .refCaseTop { grid-template-columns: 1fr; padding: 20px; gap: 18px; }
+  #performancePortfolio .refMetrics { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 20px 20px; }
+  #performancePortfolio .refShorts .perfVideoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  #performancePortfolio .refYear { right: 15px; }
+  #performancePortfolio .refHeroStage { min-height: 320px; }
+  #performancePortfolio .refFrame { padding: 13px; }
+  #performancePortfolio .refFrame b { font-size: 25px; }
+  #performancePortfolio .refHeroStage h1 { font-size: clamp(23px, 7vw, 34px); }
+  #performancePortfolio .refHeroFoot { align-items: flex-start; }
+  #performancePortfolio .refHeroActions { width: 100%; }
+  #performancePortfolio .refHeroActions .perfButton { flex: 1; padding-inline: 10px; font-size: 11px; }
+  #performancePortfolio .refAboutTop { gap: 13px; }
+  #performancePortfolio .refStat { min-height: 98px; padding: 14px 11px; }
+  #performancePortfolio .refStat strong { font-size: 25px; }
+  #performancePortfolio .refStat > span { font-size: 9px; }
+  #performancePortfolio .refServices, #performancePortfolio .refContactGrid { grid-template-columns: 1fr; }
+  #performancePortfolio .refContactGrid a { padding: 15px; }
+  #performancePortfolio .refFooter { padding-bottom: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #performancePortfolio .refFrameOne, #performancePortfolio .refFrameTwo { animation: none; }
+  #performancePortfolio .perfReveal { opacity: 1; transform: none; transition: none; }
+}
