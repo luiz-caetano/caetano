@@ -109,6 +109,7 @@ function VideoMedia({ video }: { video: Video }) {
 export default function Portfolio({ youtube, shorts }: { youtube: Video[]; shorts: Video[] }) {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const statLayout = [summaryStats[0], null, summaryStats[1], summaryStats[2], null, summaryStats[3]] as const;
 
   useEffect(() => {
     const header = headerRef.current;
@@ -247,14 +248,14 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
               <p><ArrowUpRight aria-hidden="true" /><span>Dados reais: mais cliques, mais tempo de exibição e mais inscritos.</span></p>
             </div>
             <div className="refStatGrid">
-              {summaryStats.map(([value, label, color]) => (
-                <article className="refStat" data-reveal key={label}>
-                  <strong className={color ? `perfValue-${color}` : ""}>{value}</strong>
-                  <span>{label}</span>
+              {statLayout.map((stat, index) => stat ? (
+                <article className="refStat" data-reveal key={stat[1]}>
+                  <strong className={stat[2] ? `perfValue-${stat[2]}` : ""}>{stat[0]}</strong>
+                  <span>{stat[1]}</span>
                 </article>
+              ) : (
+                <p className="refNote" key={`note-${index}`}>{index === 1 ? "Resultados metrificados." : "Dados direto do YouTube Analytics."}</p>
               ))}
-              <p className="refNote">Tudo medido, nada inventado.</p>
-              <p className="refNote">Dados direto do YouTube Analytics.</p>
             </div>
           </section>
 
