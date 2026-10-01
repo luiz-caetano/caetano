@@ -19,8 +19,9 @@ function tiktokId(url: string) {
 	return url.match(/\/video\/(\d+)/)?.[1];
 }
 
-function instagramId(url: string) {
-	return url.match(/instagram\.com\/(?:p|reel|tv)\/([\w-]+)/)?.[1];
+function instagramPost(url: string) {
+	const match = url.match(/instagram\.com\/(p|reel|tv)\/([\w-]+)/);
+	return match ? { type: match[1], id: match[2] } : null;
 }
 
 function cleanTitle(title: string | undefined, fallback: string) {
@@ -79,14 +80,15 @@ export async function getVideo(url: string): Promise<Video> {
 	}
 
 	const tiktokVideoId = tiktokId(url);
-	const instagramVideoId = instagramId(url);
-	if (instagramVideoId) {
+	const instagramVideo = instagramPost(url);
+	if (instagramVideo) {
+		const metadata = await oEmbed(url, "https://www.instagram.com/api/v1/oembed/?url=");
 		return {
 			url,
-			title: "Instagram video",
-			thumbnail: "",
+			title: "Reel de gameplay no Fisch",
+			thumbnail: metadata?.thumbnail_url ? `/api/instagram-thumbnail/${instagramVideo.id}` : "",
 			platform: "instagram",
-			embedUrl: `https://www.instagram.com/p/${instagramVideoId}/embed`,
+			embedUrl: `https://www.instagram.com/${instagramVideo.type}/${instagramVideo.id}/embed`,
 		};
 	}
 

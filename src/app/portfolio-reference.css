@@ -196,6 +196,8 @@
 #performancePortfolio .perfButton { min-height: 44px; border-radius: 3px; font-family: var(--font-geist), sans-serif; }
 #performancePortfolio .perfNav .perfButtonPrimary { min-height: 46px; padding-inline: 24px; border-radius: 999px; background: #112d4b; color: #ffffff; }
 #performancePortfolio .perfNav .perfButtonPrimary:hover { background: #1d466f; }
+#performancePortfolio .perfNav > .perfButtonPrimary { background: #111111; color: #ffffff; }
+#performancePortfolio .perfNav > .perfButtonPrimary:hover { background: #292929; }
 #performancePortfolio .perfButtonPrimary svg { width: 16px; height: 16px; }
 #performancePortfolio .refContainer, #performancePortfolio .refFooter .refContainer { width: min(1240px, calc(100% - 64px)); }
 #performancePortfolio .refPoster { padding: 42px 0 20px; }
@@ -414,4 +416,15 @@
   #performancePortfolio .refPlatformStats { grid-template-columns: 1fr; gap: 24px; }
   #performancePortfolio .refPlatformPanel + .refPlatformPanel { padding: 22px 0 0; border-top: 1px solid #e5e5e0; border-left: 0; }
   #performancePortfolio .refPlatformMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+#performancePortfolio .perfNav > .perfButtonPrimary { background: #111111; color: #ffffff; }
+#performancePortfolio .perfNav > .perfButtonPrimary:hover { background: #292929; }
+
+#performancePortfolio { cursor: url("/cursor/Zelda%20-%20Normal%20Select.ani"), auto; }
+#performancePortfolio :is(p, h1, h2, h3, span, strong, small, dt, dd, li, label) {
+  cursor: url("/cursor/Zelda%20-%20Text%20Select.ani"), text;
+}
+#performancePortfolio :is(a, button, [role="button"], summary) {
+  cursor: url("/cursor/Zelda%20-%20Link%20Select.ani"), pointer;
 }

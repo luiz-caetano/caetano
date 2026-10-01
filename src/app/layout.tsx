@@ -9,8 +9,9 @@ import { portfolio } from "@/config/portfolio";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 
 export const metadata: Metadata = {
-  title: `Editor de Vídeo para YouTube | ${portfolio.name}`,
+  title: `Luiz Caetano | Editor`,
   description: "Editor de vídeo para YouTube. Veja resultados reais de views, tempo de exibição e novos inscritos. Peça seu orçamento.",
+  icons: { icon: "/images/logo_transparente.png" },
   openGraph: {
     title: `Editor de Vídeo para YouTube | ${portfolio.name}`,
     description: "Editor de vídeo para YouTube com resultados reais de views, tempo de exibição e novos inscritos.",

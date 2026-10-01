@@ -13,7 +13,7 @@ export const portfolio = {
     "https://www.youtube.com/watch?v=p1Z4QvuBQjM",
   ],
   shortVideos: [
-    "https://www.instagram.com/p/DcgY0FCMmUa/",
+    "https://www.instagram.com/reel/DcgY0FCMmUa/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
     "https://www.tiktok.com/@luizintws/video/7683242968215506197",
     "https://www.tiktok.com/@luizintws/video/7673324848772369685",
     "https://www.tiktok.com/@luizintws/video/7672655865991859477",

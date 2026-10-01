@@ -47,7 +47,6 @@ const socialStats = [
       ["26,9K", "Curtidas"],
       ["1,8K", "Comentários"],
       ["3,5K", "Compartilhamentos"],
-      ["$10.53", "Recompensas estimadas"],
     ],
   },
   {
@@ -118,7 +117,7 @@ function VideoMedia({ video }: { video: Video }) {
           ref={imageRef}
           src={thumbnail}
           alt=""
-          loading="lazy"
+          loading={video.platform === "instagram" ? "eager" : "lazy"}
           onError={() => {
             if (video.platform === "youtube" && !useYoutubeFallback) setUseYoutubeFallback(true);
             else setThumbnailFailed(true);
@@ -202,9 +201,10 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
           <a className="perfLogo" href="#inicio">@luizintws</a>
           <div className="perfNavLinks">
             <a href="#resultados">Resultados</a>
+            <a href="#numeros">About Me</a>
             <a href="#contato">Contato</a>
           </div>
-          <a href={`mailto:${p.email}`} className="perfButton perfButtonPrimary"><img className="refVectorIcon" src="/vectors/email-svgrepo-com.svg" alt="" aria-hidden="true" />Email</a>
+          <a href={`mailto:${p.email}`} className="perfButton perfButtonPrimary"><img className="refVectorIcon" src="/vectors/email-svgrepo-com.svg" alt="" aria-hidden="true" />Contato</a>
         </nav>
       </header>
 
@@ -247,6 +247,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
               <div>
                 <p>About Me</p>
                 <h2>luizintws</h2>
+                <span className="refAboutDescription">Editor de vídeos focado em gameplay, especialmente Roblox.</span>
               </div>
             </div>
             <div className="refPlatformStats">
