@@ -10,8 +10,10 @@ export const portfolio = {
   youtubeVideos: [
     "https://www.youtube.com/watch?v=q525rGMtMBo&t=9s",
     "https://www.youtube.com/watch?v=icm9alsl8Ow&t=14s",
+    "https://www.youtube.com/watch?v=p1Z4QvuBQjM",
   ],
   shortVideos: [
+    "https://www.instagram.com/p/DcgY0FCMmUa/",
     "https://www.tiktok.com/@luizintws/video/7683242968215506197",
     "https://www.tiktok.com/@luizintws/video/7673324848772369685",
     "https://www.tiktok.com/@luizintws/video/7672655865991859477",

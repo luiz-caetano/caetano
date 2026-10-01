@@ -27,7 +27,6 @@
 #performancePortfolio button { color: inherit; font: inherit; }
 #performancePortfolio .perfContainer { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
 #performancePortfolio .perfHeader { position: sticky; top: 0; z-index: 20; isolation: isolate; overflow: hidden; border-bottom: 1px solid var(--perf-line); background: rgb(8 7 11 / 94%); backdrop-filter: blur(14px); transition: border-color .25s ease, box-shadow .25s ease; }
-#performancePortfolio .perfHeader.perfPointerActive { border-bottom-color: rgb(167 139 250 / 55%); }
 #performancePortfolio .perfNav { position: relative; z-index: 1; display: flex; width: min(1100px, calc(100% - 48px)); height: 68px; margin: auto; align-items: center; justify-content: space-between; gap: 24px; }
 #performancePortfolio .perfNav, #performancePortfolio .perfNav * { letter-spacing: 0; text-transform: none !important; }
 #performancePortfolio .perfLogo { font-size: 18px; font-weight: 800; letter-spacing: 0; }

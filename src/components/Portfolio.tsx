@@ -1,60 +1,83 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ExternalLink, Gamepad2, Instagram, Mail, MessageCircle, Play, X } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Play, X } from "lucide-react";
 import { portfolio as p } from "@/config/portfolio";
 import type { Video } from "@/lib/videos";
 
 const cases = [
   {
     videoId: "icm9alsl8Ow",
-    title: "Guia completo de progressão Fisch",
-    description: "Vídeo longo de gaming · 42 dias de dados",
+    title: "O ÚNICO GUIA QUE VOCÊ PRECISA PRA VOLTAR PRO FISCH",
+    description: "Vídeo longo de gaming · 48 dias de dados",
     metrics: [
-      ["20,6K", "Views", "+3,1K acima da média do canal"],
-      ["8,9%", "CTR", ""],
-      ["118K", "Impressões", ""],
-      ["11,5K", "Espectadores únicos", ""],
-      ["719,3h", "Tempo de exibição", "+419h acima da média do canal"],
+      ["15,7K", "Views", ""],
+      ["731,9h", "Tempo de exibição", "+421,9h acima do usual"],
       ["+136", "Novos inscritos", ""],
     ],
   },
   {
     videoId: "q525rGMtMBo",
-    title: "Melhor spot de farm de dinheiro Fisch",
-    description: "Vídeo tático curto · 24 dias de dados",
+    title: "Novo melhor spot de farm de dinheiro Fisch",
+    description: "Vídeo tático curto · 30 dias de dados",
     metrics: [
-      ["5,4K", "Views", ""],
-      ["7,5%", "CTR", ""],
-      ["26,9K", "Impressões", ""],
-      ["2,2K", "Espectadores únicos", ""],
-      ["72,6h", "Tempo de exibição", ""],
+      ["2,6K", "Views", ""],
+      ["74,1h", "Tempo de exibição", ""],
       ["+12", "Novos inscritos", ""],
+    ],
+  },
+  {
+    videoId: "p1Z4QvuBQjM",
+    title: "Farmando de Noob até o Pro no Fisch",
+    description: "Vídeo de gaming · primeiras 24h",
+    metrics: [
+      ["4K", "Views", ""],
+      ["456,7h", "Tempo de exibição", ""],
     ],
   },
 ];
 
-const summaryStats = [
-  ["26K+", "Views em 2 vídeos", "green"],
-  ["8,9%", "CTR da melhor thumbnail", "blue"],
-  ["719h", "De exibição em 1 vídeo", "yellow"],
-  ["+136", "Novos inscritos em 1 vídeo", ""],
+const socialStats = [
+  {
+    name: "TikTok",
+    id: "tiktok-about-stats",
+    metrics: [
+      ["669,5K", "Visualizações de vídeos"],
+      ["7,5K", "Visualizações de perfil"],
+      ["26,9K", "Curtidas"],
+      ["1,8K", "Comentários"],
+      ["3,5K", "Compartilhamentos"],
+      ["$10.53", "Recompensas estimadas"],
+    ],
+  },
+  {
+    name: "YouTube",
+    id: "youtube-about-stats",
+    metrics: [
+      ["36.099", "Views · últimos 28 dias"],
+      ["1,3K", "Horas de exibição · últimos 28 dias"],
+      ["+242", "Inscritos · últimos 28 dias"],
+      ["1.449", "Inscritos em tempo real"],
+      ["6.248", "Views · últimas 48 horas"],
+    ],
+  },
 ];
 
 const reasons = [
-  ["Mais cliques", "CTR de 8,9% e 7,5% nos dois vídeos. Muitos canais ficam entre 2% e 5%. Mais cliques transformam mais impressões em views."],
-  ["Mais tempo de exibição", "Um único vídeo somou 719 horas de exibição, 419 a mais que a média do canal. O YouTube mostra mais os vídeos que prendem o público."],
+  ["Mais views", "Acompanhe as views dos vídeos em destaque."],
+  ["Mais tempo de exibição", "Os dados de tempo de exibição mostram quais vídeos mantêm o público assistindo."],
   ["Mais inscritos", "Um único vídeo trouxe 136 novos inscritos."],
 ];
 
-const services = [
-  "Edição de vídeos longos no YouTube",
-  "Otimização de Shorts e formato curto",
-  "Cortes de Lives",
-  "Ritmo focado em retenção",
-  "Conteúdo de gaming e guias",
-  "Análise de métricas e feedback",
-];
+function parseCompactViews(value: string) {
+  const multiplier = /K$/i.test(value) ? 1000 : 1;
+  const numericValue = Number(value.replace(/K$/i, "").replace(/\./g, "").replace(",", "."));
+  return Number.isFinite(numericValue) ? numericValue * multiplier : 0;
+}
+
+function formatCompactViews(value: number) {
+  return value >= 1000 ? `${(value / 1000).toFixed(1).replace(".", ",")}K` : new Intl.NumberFormat("pt-BR").format(value);
+}
 
 function metricEmphasis(value: string) {
   if (value.endsWith("h")) return "perfMetric-emphasis-time";
@@ -87,7 +110,7 @@ function VideoMedia({ video }: { video: Video }) {
       {thumbnailFailed && (
         <span className="perfThumbnailFallback">
           <strong>{video.title}</strong>
-          <small>{video.platform === "tiktok" ? "TIKTOK" : "YOUTUBE"}</small>
+            <small>{video.platform.toUpperCase()}</small>
         </span>
       )}
       {thumbnail && !thumbnailFailed && (
@@ -108,42 +131,14 @@ function VideoMedia({ video }: { video: Video }) {
 
 export default function Portfolio({ youtube, shorts }: { youtube: Video[]; shorts: Video[] }) {
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
-  const statLayout = [summaryStats[0], null, summaryStats[1], summaryStats[2], null, summaryStats[3]] as const;
-
-  useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
-
-    const updatePointerPosition = (event: PointerEvent) => {
-      const bounds = header.getBoundingClientRect();
-      const x = `${event.clientX - bounds.left}px`;
-      const y = `${event.clientY - bounds.top}px`;
-      header.style.setProperty("--pointer-x", x);
-      header.style.setProperty("--pointer-y", y);
-      header.style.backgroundImage = `radial-gradient(360px circle at ${x} ${y}, rgb(167 139 250 / 24%), transparent 72%)`;
-    };
-    const activatePointerGlow = (event: PointerEvent) => {
-      header.classList.add("perfPointerActive");
-      header.style.boxShadow = "0 12px 44px -28px rgb(167 139 250 / 80%)";
-      updatePointerPosition(event);
-    };
-    const deactivatePointerGlow = () => {
-      header.classList.remove("perfPointerActive");
-      header.style.backgroundImage = "none";
-      header.style.boxShadow = "none";
-    };
-
-    header.addEventListener("pointermove", updatePointerPosition, { passive: true });
-    header.addEventListener("pointerenter", activatePointerGlow);
-    header.addEventListener("pointerleave", deactivatePointerGlow);
-    return () => {
-      header.removeEventListener("pointermove", updatePointerPosition);
-      header.removeEventListener("pointerenter", activatePointerGlow);
-      header.removeEventListener("pointerleave", deactivatePointerGlow);
-    };
-  }, []);
-
+  const [activeWorkView, setActiveWorkView] = useState<"long" | "short">("long");
+  const findVideo = (videoId: string) => youtube.find((item) => item.embedUrl.endsWith(`/${videoId}`));
+  const viewsForCase = (caseStudy: (typeof cases)[number]) => {
+    const liveViews = findVideo(caseStudy.videoId)?.viewCount;
+    if (liveViews) return Number(liveViews);
+    const fallbackViews = caseStudy.metrics.find(([, label]) => label === "Views")?.[0];
+    return fallbackViews ? parseCompactViews(fallbackViews) : 0;
+  };
   useEffect(() => {
     const revealTargets = document.querySelectorAll<HTMLElement>("#performancePortfolio [data-reveal]");
     revealTargets.forEach((element, index) => {
@@ -188,7 +183,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
           <button className="perfVideoThumbnail" onClick={() => setActiveVideo(video)} aria-label={`Assistir ${video.title}`}>
             <VideoMedia video={video} />
             <span className="perfPlayButton"><Play fill="currentColor" /></span>
-            <small>{platform}</small>
+            <small>{video.platform === "instagram" ? "Instagram" : platform}</small>
           </button>
           <div className="perfVideoMeta">
             <span>{String(index + 1).padStart(2, "0")}</span>
@@ -202,15 +197,14 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
 
   return (
     <div id="performancePortfolio">
-      <header className="perfHeader" ref={headerRef}>
+      <header className="perfHeader">
         <nav className="perfNav" aria-label="Navegação principal">
           <a className="perfLogo" href="#inicio">@luizintws</a>
           <div className="perfNavLinks">
             <a href="#resultados">Resultados</a>
-            <a href="#servicos">Serviços</a>
             <a href="#contato">Contato</a>
           </div>
-          <a href="#contato" className="perfButton perfButtonPrimary">Pedir orçamento</a>
+          <a href={`mailto:${p.email}`} className="perfButton perfButtonPrimary"><img className="refVectorIcon" src="/vectors/email-svgrepo-com.svg" alt="" aria-hidden="true" />Email</a>
         </nav>
       </header>
 
@@ -223,83 +217,120 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
           <section className="refSlide refHero" id="inicio">
             <span className="refBracket refTag1">[ Vídeos longos ]</span>
             <span className="refBracket refTag2">[ Shorts ]</span>
-            <span className="refBracket refTag3">[ Thumbnails ]</span>
             <span className="refBracket refTag4">[ Ritmo ]</span>
             <span className="refBracket refTag5">[ Gaming ]</span>
             <span className="refBracket refTag6">[ Guias ]</span>
             <span className="refYear">✦ &nbsp;2026</span>
             <div className="refHeroStage">
-              <div className="refFrame refFrameOne"><b>8,9%</b><span>CTR da melhor thumbnail</span></div>
-              <div className="refFrame refFrameTwo"><b>7,5%</b><span>CTR no vídeo curto</span></div>
+              <div className="refFrame refFrameOne">
+                <img src="/images/THIMBNOOB.jpg" alt="Miniatura de gameplay Noob to Pro" />
+                <div className="refFrameCaption"><b>{formatCompactViews(viewsForCase(cases[0]))}</b><span>Views do vídeo</span></div>
+              </div>
+              <div className="refFrame refFrameTwo">
+                <img src="/images/THUMB3.jpg" alt="Miniatura de gameplay Nova Rod" />
+                <div className="refFrameCaption"><b>731,9h</b><span>Tempo de exibição</span></div>
+              </div>
               <h1>Edição que traz <em>mais views</em> para o seu canal</h1>
             </div>
             <div className="refHeroFoot">
               <div><strong>luizintws</strong><span>Edição de vídeo para YouTube</span></div>
               <div className="refHeroActions">
                 <a href="#resultados" className="perfButton perfButtonPrimary">Ver os números <ArrowUpRight /></a>
-                <a href="#contato" className="perfButton perfButtonOutline">Falar sobre meu canal</a>
+                <a href="#contato" className="perfButton perfButtonOutline">Entre em contato</a>
               </div>
             </div>
           </section>
 
           <section className="refSlide refAbout" id="numeros">
-            <div className="refAboutTop">
-              <h2>luizintws</h2>
-              <p><ArrowUpRight aria-hidden="true" /><span>Dados reais: mais cliques, mais tempo de exibição e mais inscritos.</span></p>
+            <div className="refAboutIdentity">
+              <img src="/images/logo_transparente.png" alt="Logo do canal luizintws" />
+              <div>
+                <p>About Me</p>
+                <h2>luizintws</h2>
+              </div>
             </div>
-            <div className="refStatGrid">
-              {statLayout.map((stat, index) => stat ? (
-                <article className="refStat" data-reveal key={stat[1]}>
-                  <strong className={stat[2] ? `perfValue-${stat[2]}` : ""}>{stat[0]}</strong>
-                  <span>{stat[1]}</span>
-                </article>
-              ) : (
-                <p className="refNote" key={`note-${index}`}>{index === 1 ? "Resultados metrificados." : "Dados direto do YouTube Analytics."}</p>
+            <div className="refPlatformStats">
+              {socialStats.map((platform) => (
+                <section className="refPlatformPanel" aria-labelledby={platform.id} key={platform.id}>
+                  <h3 id={platform.id}>{platform.name}</h3>
+                  <dl className="refPlatformMetricGrid">
+                    {platform.metrics.map(([value, label]) => (
+                      <div className="refPlatformMetric" key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
               ))}
             </div>
           </section>
 
           <section className="refSlide" id="resultados">
-            <div className="refSlideHead" data-reveal>
-              <h2>Resultados de vídeos que editei</h2>
-              <p>Dados direto do YouTube Analytics.</p>
-            </div>
-            <div className="refCaseList">
-              {cases.map((caseStudy) => {
-                const video = youtube.find((item) => item.embedUrl.endsWith(`/${caseStudy.videoId}`));
-                return (
-                  <article className="refCase" data-reveal key={caseStudy.videoId}>
-                    <div className="refCaseTop">
-                      {video ? (
-                        <button className="refPreview" type="button" onClick={() => setActiveVideo(video)} aria-label={`Reproduzir: ${caseStudy.title}`}>
-                          <VideoMedia video={video} />
-                          <span className="refPlay"><Play fill="currentColor" /></span>
-                        </button>
-                      ) : <div className="refPreview refPreviewEmpty" />}
-                      <div className="refCaseInfo">
-                        <div><h3>{caseStudy.title}</h3><p>{caseStudy.description}</p></div>
-                        {video && <a href={video.url} target="_blank" rel="noopener noreferrer" className="refCaseLink">Assistir no YouTube <ExternalLink /></a>}
-                      </div>
-                    </div>
-                    <div className={`refMetrics ${caseStudy.metrics.length === 6 ? "refMetricsSix" : ""}`}>
-                      {caseStudy.metrics.map(([value, label, note]) => (
-                        <div className="refMetric" key={label}>
-                          <strong className={metricEmphasis(value)}>{value}</strong>
-                          <span>{label}</span>
-                          {note && <small>{note}</small>}
-                        </div>
-                      ))}
-                    </div>
-                  </article>
-                );
-              })}
+            <aside className="refWorkIndex" aria-label="Work categories" data-active={activeWorkView}>
+              <span className="refWorkDots" aria-hidden="true"><i /><i /><i /></span>
+              <button type="button" aria-pressed={activeWorkView === "long"} onClick={() => setActiveWorkView("long")}><b>01</b><span>YouTube long videos</span></button>
+              <button type="button" aria-pressed={activeWorkView === "short"} onClick={() => setActiveWorkView("short")}><b>02</b><span>Short videos</span></button>
+            </aside>
+            <div className={`refWorkContent ${activeWorkView === "short" ? "refWorkSlideReverse" : ""}`} key={activeWorkView}>
+              {activeWorkView === "long" ? (
+                <>
+                  <div className="refSlideHead" data-reveal>
+                    <h2>Resultados de vídeos que editei</h2>
+                    <p>Dados direto do YouTube Analytics.</p>
+                  </div>
+                  <div className="refCaseList">
+                    {cases.map((caseStudy) => {
+                      const video = findVideo(caseStudy.videoId);
+                      const caseMetrics = caseStudy.metrics.map(([value, label, note]) => [
+                        label === "Views" && video?.viewCount ? formatCompactViews(Number(video.viewCount)) : value,
+                        label,
+                        note,
+                      ] as const);
+                      return (
+                        <article className="refCase" data-reveal key={caseStudy.videoId}>
+                          <div className="refCaseTop">
+                            {video ? (
+                              <button className="refPreview" type="button" onClick={() => setActiveVideo(video)} aria-label={`Reproduzir: ${caseStudy.title}`}>
+                                <VideoMedia video={video} />
+                                <span className="refPlay"><Play fill="currentColor" /></span>
+                              </button>
+                            ) : <div className="refPreview refPreviewEmpty" />}
+                            <div className="refCaseInfo">
+                              <div><h3>{caseStudy.title}</h3><p>{caseStudy.description}</p></div>
+                              {video && <a href={video.url} target="_blank" rel="noopener noreferrer" className="refCaseLink">Assistir no YouTube <ExternalLink /></a>}
+                            </div>
+                          </div>
+                          <div className="refMetrics">
+                            {caseMetrics.map(([value, label, note]) => (
+                              <div className="refMetric" key={label}>
+                                <strong className={metricEmphasis(value)}>{value}</strong>
+                                <span>{label}</span>
+                                {note && <small>{note}</small>}
+                              </div>
+                            ))}
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                <div className="refShorts" id="videos">
+                  <div className="refSlideHead" data-reveal>
+                    <h2>Vídeos curtos</h2>
+                    <p>Assista aos Shorts e TikToks do portfólio.</p>
+                  </div>
+                  {videoGallery(shorts, "TikTok", "perfShortGrid")}
+                </div>
+              )}
             </div>
           </section>
 
           <section className="refSlide">
             <div className="refSlideHead" data-reveal>
-              <h2>Showreel mostra estilo. Números mostram resultado.</h2>
-              <p>Edição bonita é comum. Edição que ajuda o YouTube a recomendar seu vídeo é rara.</p>
+              <h2>Os principais pontos que valorizo no meu trabalho</h2>
+              <p>Quando se trata do YouTube, os vídeos precisam de pontos específicos, para reter o publico.</p>
             </div>
             <ol className="refBenefits">
               {reasons.map(([title, description]) => (
@@ -308,39 +339,12 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
             </ol>
           </section>
 
-          <section className="refSlide" id="servicos">
-            <div className="refSlideHead" data-reveal>
-              <h2>O que você recebe</h2>
-              <p>Cada corte existe para prender o espectador.</p>
-            </div>
-            <div className="refServices">
-              {[
-                "Edição de vídeos longos para YouTube",
-                "Edição de Shorts e vídeos curtos",
-                "Thumbnail e título que geram cliques",
-                "Ritmo que segura o espectador",
-                "Vídeos de gaming e guias",
-                "Análise de métricas e feedback para melhorar",
-              ].map((service) => <div className="refService" data-reveal key={service}><ArrowUpRight aria-hidden="true" /><span>{service}</span></div>)}
-            </div>
-          </section>
-
-          <section className="refSlide refShorts" id="videos">
-            <div className="refSlideHead" data-reveal>
-              <h2>Vídeos curtos</h2>
-              <p>Assista aos Shorts e TikToks do portfólio.</p>
-            </div>
-            {videoGallery(shorts, "TikTok", "perfShortGrid")}
-          </section>
-
           <section className="refSlide refContact" id="contato">
             <h2>Quer números assim no seu canal?</h2>
-            <p className="refContactLead">Conte sobre seu canal e o que quer melhorar: views, CTR, retenção ou inscritos.</p>
+            <p className="refContactLead">Conte sobre seu canal e o que quer melhorar: views, tempo de exibição ou inscritos.</p>
             <div className="refContactGrid">
-              <a data-reveal href={`mailto:${p.email}`}><Mail /><span><small>Email</small><strong>{p.email}</strong></span></a>
-              <a data-reveal href="https://wa.me/5535999902059" target="_blank" rel="noopener noreferrer"><MessageCircle /><span><small>WhatsApp</small><strong>+55 35 99990-2059</strong></span></a>
-              <a data-reveal href="https://discord.com/users/luizn_" target="_blank" rel="noopener noreferrer"><Gamepad2 /><span><small>Discord</small><strong>luizn_</strong></span></a>
-              <a data-reveal href="https://instagram.com/luizintws" target="_blank" rel="noopener noreferrer"><Instagram /><span><small>Instagram</small><strong>@luizintws</strong></span></a>
+              <a data-reveal href={`mailto:${p.email}`}><img className="refVectorIcon" src="/vectors/email-svgrepo-com.svg" alt="" aria-hidden="true" /><span><small>Email</small><strong>{p.email}</strong></span></a>
+              <a data-reveal href="https://discord.com/users/luizn_" target="_blank" rel="noopener noreferrer"><img className="refVectorIcon" src="/vectors/discord-icon-svgrepo-com.svg" alt="" aria-hidden="true" /><span><small>Discord</small><strong>luizn_</strong></span></a>
             </div>
           </section>
         </main>

@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&family=Unbounded:wght@400;500;700;800&display=swap');
 
 #performancePortfolio {
-  --ref-page-a: #0f0817;
-  --ref-page-b: #24153b;
-  --ref-page-c: #4d3380;
-  --ref-panel: #120b1d;
-  --ref-line: rgb(196 181 253 / 16%);
-  --ref-line-strong: rgb(196 181 253 / 38%);
-  --ref-text: #f6f3ff;
-  --ref-muted: #a99fc4;
-  --ref-dim: #c8bce8;
-  --ref-accent: #a78bfa;
-  --ref-accent-strong: #8b5cf6;
-  --ref-on-accent: #160d26;
+  --ref-page-a: #ffffff;
+  --ref-page-b: #ffffff;
+  --ref-page-c: #ffffff;
+  --ref-panel: #ffffff;
+  --ref-line: #e5e5e0;
+  --ref-line-strong: #d5d6d0;
+  --ref-text: #292a27;
+  --ref-muted: #686a65;
+  --ref-dim: #494b46;
+  --ref-accent: #173a5e;
+  --ref-accent-strong: #102b49;
+  --ref-on-accent: #ffffff;
   min-height: 100vh;
   overflow: clip;
-  background: linear-gradient(145deg, var(--ref-page-a) 0%, var(--ref-page-b) 48%, var(--ref-page-c) 100%) fixed;
+  background: #ffffff;
   color: var(--ref-text);
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-geist), sans-serif;
   line-height: 1.55;
 }
 
@@ -26,7 +26,6 @@
 #performancePortfolio button { color: inherit; font: inherit; }
 #performancePortfolio :focus-visible { outline: 2px solid var(--ref-accent); outline-offset: 3px; }
 #performancePortfolio .perfHeader { position: sticky; top: 0; z-index: 50; overflow: visible; border-bottom: 1px solid var(--ref-line); background-color: rgb(15 8 23 / 88%); backdrop-filter: blur(12px); }
-#performancePortfolio .perfHeader.perfPointerActive { border-bottom-color: var(--ref-line-strong); }
 #performancePortfolio .perfNav { width: min(1100px, calc(100% - 48px)); height: 64px; gap: 16px; }
 #performancePortfolio .perfNav, #performancePortfolio .perfNav * { text-transform: none !important; letter-spacing: 0; }
 #performancePortfolio .perfNavLinks { gap: 32px; color: var(--ref-muted); font: 400 14px "Montserrat", sans-serif; }
@@ -35,7 +34,7 @@
 #performancePortfolio .perfLogo span { color: var(--ref-accent); }
 #performancePortfolio .perfButton { min-height: 42px; padding: 10px 18px; border-radius: 4px; font: 600 13px "Montserrat", sans-serif; }
 #performancePortfolio .perfButtonPrimary { background: var(--ref-accent); color: var(--ref-on-accent); }
-#performancePortfolio .perfButtonPrimary:hover { background: #c4b5fd; }
+#performancePortfolio .perfButtonPrimary:hover { background: #1d466f; }
 #performancePortfolio .perfButtonOutline { border-color: var(--ref-line-strong); color: var(--ref-text); }
 #performancePortfolio .perfButtonOutline:hover { border-color: var(--ref-accent); color: var(--ref-accent); }
 #performancePortfolio .refContainer { width: min(1100px, calc(100% - 48px)); margin-inline: auto; }
@@ -74,13 +73,7 @@
 #performancePortfolio .refAboutTop h2 { font: 500 clamp(20px, 3vw, 30px) "Unbounded", sans-serif; text-transform: uppercase; }
 #performancePortfolio .refAboutTop p { display: flex; max-width: 340px; gap: 12px; color: var(--ref-dim); font-size: 12px; }
 #performancePortfolio .refAboutTop p svg { width: 20px; flex: 0 0 20px; color: var(--ref-accent); }
-#performancePortfolio .refStatGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, .9fr) minmax(0, 1fr); grid-template-rows: repeat(2, minmax(132px, auto)); grid-template-areas: "stat-one note-one stat-two" "stat-three note-two stat-four"; gap: 16px 28px; align-items: stretch; }
-#performancePortfolio .refStatGrid > :nth-child(1) { grid-area: stat-one; }
-#performancePortfolio .refStatGrid > :nth-child(2) { grid-area: note-one; }
-#performancePortfolio .refStatGrid > :nth-child(3) { grid-area: stat-two; }
-#performancePortfolio .refStatGrid > :nth-child(4) { grid-area: stat-three; }
-#performancePortfolio .refStatGrid > :nth-child(5) { grid-area: note-two; }
-#performancePortfolio .refStatGrid > :nth-child(6) { grid-area: stat-four; }
+#performancePortfolio .refStatGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
 #performancePortfolio .refStat { display: flex; min-height: 132px; flex-direction: column; justify-content: center; padding: 25px 20px; border: 1px solid var(--ref-line-strong); }
 #performancePortfolio .refStat strong { margin-bottom: 8px; font: 500 clamp(28px, 3.6vw, 40px)/1.1 "Unbounded", sans-serif; }
 #performancePortfolio .refStat > span { color: var(--ref-dim); font-size: 11px; font-weight: 600; text-transform: uppercase; }
@@ -102,12 +95,12 @@
 #performancePortfolio .refCaseInfo h3 { font: 500 17px/1.35 "Unbounded", sans-serif; }
 #performancePortfolio .refCaseInfo p { margin-top: 8px; color: var(--ref-muted); font-size: 12px; }
 #performancePortfolio .refCaseLink { display: inline-flex; align-items: center; gap: 9px; color: var(--ref-accent); font-size: 12px; }
-#performancePortfolio .refCaseLink:hover { color: #c4b5fd; }
+#performancePortfolio .refCaseLink:hover { color: #1d466f; }
 #performancePortfolio .refCaseLink svg { width: 17px; height: 17px; }
 #performancePortfolio .refMetrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0 26px 26px; }
 #performancePortfolio .refMetric { min-width: 0; padding: 17px 15px; border: 1px solid var(--ref-line-strong); }
 #performancePortfolio .refMetric strong { display: block; margin-bottom: 6px; font: 500 21px/1.15 "Unbounded", sans-serif; }
-#performancePortfolio .refMetric .perfMetric-emphasis-mid { color: #c4b5fd; }
+#performancePortfolio .refMetric .perfMetric-emphasis-mid { color: #294e73; }
 #performancePortfolio .refMetric .perfMetric-emphasis-high, #performancePortfolio .refMetric .perfMetric-emphasis-max { color: #ddd0ff; }
 #performancePortfolio .refMetric .perfMetric-emphasis-time { color: #e9a8ff; }
 #performancePortfolio .refMetric > span { display: block; color: var(--ref-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; }
@@ -128,7 +121,7 @@
 #performancePortfolio .refContactLead { max-width: 480px; margin: 14px 0 30px; color: var(--ref-muted); font-size: 14px; }
 #performancePortfolio .refContactGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 #performancePortfolio .refContactGrid a { display: flex; min-width: 0; align-items: center; gap: 15px; padding: 18px; border: 1px solid var(--ref-line-strong); background: transparent; transition: border-color .2s ease, background .2s ease; }
-#performancePortfolio .refContactGrid a:hover { border-color: var(--ref-accent); background: rgb(167 139 250 / 7%); }
+#performancePortfolio .refContactGrid a:hover { border-color: var(--ref-accent); background: rgb(23 58 94 / 5%); }
 #performancePortfolio .refContactGrid a > svg { width: 26px; height: 26px; flex: 0 0 26px; color: var(--ref-accent); }
 #performancePortfolio .refContactGrid a > span { min-width: 0; }
 #performancePortfolio .refContactGrid small, #performancePortfolio .refContactGrid strong { display: block; }
@@ -154,10 +147,9 @@
   #performancePortfolio .refFrameTwo { top: 14%; left: 42%; width: 48%; height: 62%; }
   #performancePortfolio .refHeroStage h1 { max-width: 580px; font-size: clamp(26px, 6vw, 42px); }
   #performancePortfolio .refTag4, #performancePortfolio .refTag5 { bottom: 130px; }
-  #performancePortfolio .refStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(112px, auto)) auto auto; grid-template-areas: "stat-one stat-two" "stat-three stat-four" "note-one note-one" "note-two note-two"; gap: 10px; }
+  #performancePortfolio .refStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   #performancePortfolio .refStat { min-height: 112px; padding: 19px 15px; }
-  #performancePortfolio .refNote { grid-column: 1 / -1; min-height: 48px; padding: 4px 0; }
-  #performancePortfolio .refNote::before, #performancePortfolio .refNote::after { font-size: 32px; }
+  #performancePortfolio .refStatGrid > .refStat:last-child { grid-column: 1 / -1; width: calc((100% - 10px) / 2); justify-self: center; }
   #performancePortfolio .refCaseTop { grid-template-columns: 1fr; padding: 20px; gap: 18px; }
   #performancePortfolio .refMetrics { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 20px 20px; }
   #performancePortfolio .refShorts .perfVideoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -184,4 +176,242 @@
 @media (prefers-reduced-motion: reduce) {
   #performancePortfolio .refFrameOne, #performancePortfolio .refFrameTwo { animation: none; }
   #performancePortfolio .perfReveal { opacity: 1; transform: none; transition: none; }
+}
+
+#performancePortfolio {
+  padding-bottom: 0;
+  --perf-green: #173a5e;
+  --perf-blue: #294e73;
+  --perf-yellow: #496987;
+  background: #ffffff;
+  color: #292a27;
+  font-family: var(--font-geist), sans-serif;
+}
+
+#performancePortfolio .perfHeader { border-color: #e5e5e0; background: rgb(255 255 255 / 94%); }
+#performancePortfolio .perfNav { width: min(1240px, calc(100% - 64px)); }
+#performancePortfolio .perfNavLinks { color: #686a65; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .perfNavLinks a:hover { color: #173a5e; }
+#performancePortfolio .perfLogo { color: #292a27; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .perfButton { min-height: 44px; border-radius: 3px; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .perfNav .perfButtonPrimary { min-height: 46px; padding-inline: 24px; border-radius: 999px; background: #112d4b; color: #ffffff; }
+#performancePortfolio .perfNav .perfButtonPrimary:hover { background: #1d466f; }
+#performancePortfolio .perfButtonPrimary svg { width: 16px; height: 16px; }
+#performancePortfolio .refContainer, #performancePortfolio .refFooter .refContainer { width: min(1240px, calc(100% - 64px)); }
+#performancePortfolio .refPoster { padding: 42px 0 20px; }
+#performancePortfolio .refPoster p { margin: 0; color: #858780; font: 500 13px/1.4 var(--font-geist), sans-serif; letter-spacing: 0; text-transform: none; }
+#performancePortfolio .refPoster span { color: #686a65; opacity: 1; }
+#performancePortfolio .refMain { padding-bottom: 0; }
+#performancePortfolio .refSlide { padding: 70px 0; margin: 0; border: 0; border-top: 1px solid #e5e5e0; border-radius: 0; background: transparent; }
+#performancePortfolio .refHero { padding-block: 28px 64px; border-top: 0; }
+#performancePortfolio .refBracket { display: none; }
+#performancePortfolio .refYear { top: 17px; right: 0; color: #686a65; font-size: 12px; }
+#performancePortfolio .refHeroStage { min-height: 440px; grid-template-columns: minmax(0, 1.14fr) minmax(260px, .86fr); place-items: center; margin-top: 0; }
+#performancePortfolio .refFrame { border-color: #d5d6d0; color: #292a27; }
+#performancePortfolio .refFrameOne { top: 4%; right: 2%; left: auto; width: 34%; height: 90%; background: #eef1ed; }
+#performancePortfolio .refFrameTwo { top: 20%; right: 15%; left: auto; width: 28%; height: 60%; background: #e6ece7; }
+#performancePortfolio .refFrame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#performancePortfolio .refFrame::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgb(0 0 0 / 72%), rgb(0 0 0 / 5%) 76%); content: ""; }
+#performancePortfolio .refFrameCaption { position: absolute; z-index: 1; right: 14px; bottom: 14px; left: 14px; display: grid; gap: 3px; color: #ffffff; text-shadow: 0 1px 8px rgb(0 0 0 / 60%); }
+#performancePortfolio .refFrameCaption b { color: #ffffff; font: 700 clamp(24px, 3vw, 38px)/1.1 var(--font-geist), sans-serif; }
+#performancePortfolio .refFrameCaption span { max-width: 170px; color: #ffffff; font-size: 11px; }
+#performancePortfolio .refHeroStage h1 { grid-column: 1; max-width: 100%; padding: 0; color: #292a27; font: 650 clamp(48px, 7.6vw, 104px)/.96 var(--font-geist), sans-serif; letter-spacing: 0; text-align: left; text-transform: none; }
+#performancePortfolio .refHeroStage h1 em { color: #173a5e; font-style: normal; }
+#performancePortfolio .refHeroFoot { align-items: center; margin-top: 18px; }
+#performancePortfolio .refHeroFoot > div:first-child strong { color: #292a27; font-size: 18px; }
+#performancePortfolio .refHeroFoot > div:first-child span { color: #686a65; font-size: 13px; }
+#performancePortfolio .refHeroActions { gap: 10px; }
+#performancePortfolio .refAbout { padding-block: 44px 62px; }
+#performancePortfolio .refAboutTop h2 { color: #292a27; font: 600 clamp(24px, 3vw, 36px)/1.1 var(--font-geist), sans-serif; text-transform: none; }
+#performancePortfolio .refAboutTop p { color: #686a65; }
+#performancePortfolio .refAboutTop p svg { color: #173a5e; }
+#performancePortfolio .refStat { border: 1px solid #e5e5e0; background: #ffffff; }
+#performancePortfolio .refStat strong { color: #292a27; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .refStat > span { color: #686a65; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .refNote { color: #686a65; }
+#performancePortfolio .refNote::before, #performancePortfolio .refNote::after { color: #173a5e; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .refSlideHead h2 { color: #292a27; font: 600 clamp(30px, 4.6vw, 58px)/1.04 var(--font-geist), sans-serif; letter-spacing: 0; text-transform: none; }
+#performancePortfolio .refSlideHead p { color: #686a65; font-size: 14px; }
+#performancePortfolio .refCase { border: 1px solid #e5e5e0; background: #ffffff; }
+#performancePortfolio .refCaseTop { padding: 20px; }
+#performancePortfolio .refPreview { border-color: #e5e5e0; background: #f1f2ee; }
+#performancePortfolio .refPreview .perfThumbnailFallback { background: #f1f2ee; }
+#performancePortfolio .refPreview .perfThumbnailFallback strong { color: #292a27; }
+#performancePortfolio .refPlay { background: #173a5e; color: #ffffff; }
+#performancePortfolio .refCaseInfo h3 { color: #292a27; font: 600 18px/1.35 var(--font-geist), sans-serif; }
+#performancePortfolio .refCaseInfo p { color: #686a65; }
+#performancePortfolio .refCaseLink { color: #173a5e; }
+#performancePortfolio .refMetrics { gap: 0; padding: 0 20px 20px; }
+#performancePortfolio .refMetric { border: 0; border-top: 1px solid #e5e5e0; }
+#performancePortfolio .refMetric strong { color: #292a27; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .refMetric .perfMetric-emphasis-mid { color: #294e73; }
+#performancePortfolio .refMetric .perfMetric-emphasis-high,
+#performancePortfolio .refMetric .perfMetric-emphasis-max,
+#performancePortfolio .refMetric .perfMetric-emphasis-time { color: #173a5e; }
+#performancePortfolio .refMetric > span { color: #686a65; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .refMetric small { color: #173a5e; }
+#performancePortfolio .refBenefits { border-color: #d5d6d0; }
+#performancePortfolio .refBenefits li { border-color: #d5d6d0; }
+#performancePortfolio .refBenefits h3 { color: #292a27; font: 600 17px/1.35 var(--font-geist), sans-serif; text-transform: none; }
+#performancePortfolio .refBenefits li > svg, #performancePortfolio .refService svg { color: #173a5e; }
+#performancePortfolio .refBenefits p { color: #686a65; }
+#performancePortfolio .refService { min-height: 66px; border: 0; border-top: 1px solid #e5e5e0; font-size: 14px; }
+#performancePortfolio .refShorts .perfShortGrid { gap: 22px 16px; }
+#performancePortfolio .refShorts .perfVideoThumbnail { border-color: #e5e5e0; background: #f1f2ee; }
+#performancePortfolio .perfShortGrid .perfThumbnailFallback { background: #f1f2ee; }
+#performancePortfolio .perfShortGrid .perfThumbnailFallback strong { color: #292a27; }
+#performancePortfolio .perfShortGrid .perfThumbnailFallback small { color: #173a5e; }
+#performancePortfolio .refShorts .perfPlayButton { background: #173a5e; color: #ffffff; }
+#performancePortfolio .refShorts .perfVideoMeta > span, #performancePortfolio .refShorts .perfVideoMeta svg { color: #173a5e; }
+#performancePortfolio .refContact h2 { color: #292a27; font: 600 clamp(32px, 5vw, 62px)/1.04 var(--font-geist), sans-serif; text-transform: none; }
+#performancePortfolio .refContactLead { color: #686a65; }
+#performancePortfolio .refContactGrid a { border-color: #e5e5e0; background: #ffffff; }
+#performancePortfolio .refContactGrid a:hover { border-color: #173a5e; background: #f2f6fa; }
+#performancePortfolio .refContactGrid a > svg { color: #173a5e; }
+#performancePortfolio .refContactGrid small { color: #686a65; }
+#performancePortfolio .refFooter { color: #686a65; font-family: var(--font-geist), sans-serif; }
+#performancePortfolio .perfModal { background: rgb(33 34 31 / 82%); }
+#performancePortfolio .perfClose { border-color: #d5d6d0; background: #ffffff; color: #292a27; }
+#performancePortfolio .perfPlayer-instagram { width: min(540px, 88vw); aspect-ratio: 4 / 5; background: #ffffff; }
+#performancePortfolio .perfValue-green { color: #173a5e; }
+#performancePortfolio .refWorkIndex { position: absolute; top: 70px; left: 0; display: grid; width: 156px; align-content: start; gap: 15px; }
+#performancePortfolio .refWorkDots { display: flex; gap: 6px; padding-bottom: 9px; }
+#performancePortfolio .refWorkDots i { width: 7px; height: 7px; border-radius: 50%; background: #ccd3dc; }
+#performancePortfolio .refWorkDots i:first-child { background: #173a5e; }
+#performancePortfolio .refWorkIndex a { display: grid; grid-template-columns: 27px minmax(0, 1fr); gap: 7px; align-items: start; color: #686a65; font-size: 12px; line-height: 1.3; }
+#performancePortfolio .refWorkIndex a b { color: #686a65; font-size: 14px; font-weight: 500; }
+#performancePortfolio .refWorkIndex .refWorkIndexActive b { color: #173a5e; font-size: 24px; font-weight: 700; line-height: 1; }
+#performancePortfolio .refWorkIndex .refWorkIndexActive span { color: #292a27; font-weight: 600; }
+#performancePortfolio .refSlide#resultados > .refSlideHead,
+#performancePortfolio .refSlide#resultados > .refCaseList { margin-left: 196px; }
+
+@media (max-width: 900px) {
+  #performancePortfolio .refWorkIndex { position: static; display: flex; width: auto; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 28px; }
+  #performancePortfolio .refWorkDots { padding: 0; }
+  #performancePortfolio .refSlide#resultados > .refSlideHead,
+  #performancePortfolio .refSlide#resultados > .refCaseList { margin-left: 0; }
+}
+
+@media (max-width: 720px) {
+  #performancePortfolio .perfNav, #performancePortfolio .refContainer, #performancePortfolio .refFooter .refContainer { width: calc(100% - 32px); }
+  #performancePortfolio .refSlide { padding-block: 46px; }
+  #performancePortfolio .refHero { padding-block: 20px 48px; }
+  #performancePortfolio .refHeroStage { min-height: 360px; }
+  #performancePortfolio .refHeroStage h1 { font-size: clamp(42px, 10vw, 72px); }
+  #performancePortfolio .refHeroFoot { align-items: flex-start; }
+  #performancePortfolio .refHeroActions { width: 100%; }
+  #performancePortfolio .refHeroActions .perfButton { flex: 1; }
+  #performancePortfolio .refCaseTop { padding: 16px; }
+  #performancePortfolio .refMetrics { padding: 0 16px 16px; }
+  #performancePortfolio .refShorts .perfShortGrid { gap: 20px 12px; }
+}
+
+@media (max-width: 560px) {
+  #performancePortfolio .perfNav { width: calc(100% - 28px); }
+  #performancePortfolio .perfNav .perfButton { min-height: 38px; padding-inline: 11px; font-size: 11px; }
+  #performancePortfolio .refHeroStage { min-height: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; gap: 8px; padding-top: 30px; }
+  #performancePortfolio .refFrame { position: relative; top: auto; right: auto; left: auto; width: auto; height: auto; min-height: 92px; padding: 11px; }
+  #performancePortfolio .refHeroStage { grid-template-rows: auto auto; }
+  #performancePortfolio .refHeroStage h1 { grid-column: 1 / -1; grid-row: 1; font-size: clamp(40px, 12vw, 58px); }
+  #performancePortfolio .refFrameOne { grid-column: 1; grid-row: 2; }
+  #performancePortfolio .refFrameTwo { grid-column: 2; grid-row: 2; }
+  #performancePortfolio .refHeroFoot { gap: 16px; }
+  #performancePortfolio .refAbout { padding-block: 36px 44px; }
+  #performancePortfolio .refStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #performancePortfolio .refStatGrid > :nth-child(n) { grid-area: auto; }
+  #performancePortfolio .refStatGrid > .refStat:last-child { grid-column: 1 / -1; width: calc((100% - 10px) / 2); justify-self: center; }
+  #performancePortfolio .refServices { grid-template-columns: 1fr; }
+}
+
+#performancePortfolio {
+  --ref-accent: #007f9f;
+  --ref-accent-strong: #00627d;
+  --perf-green: #007f9f;
+  --perf-blue: #2a8fa8;
+  --perf-yellow: #73afbd;
+}
+
+#performancePortfolio .perfNavLinks a:hover,
+#performancePortfolio .refHeroStage h1 em,
+#performancePortfolio .refAboutTop p svg,
+#performancePortfolio .refNote::before,
+#performancePortfolio .refNote::after,
+#performancePortfolio .refCaseLink,
+#performancePortfolio .refMetric small,
+#performancePortfolio .refBenefits li > svg,
+#performancePortfolio .refService svg,
+#performancePortfolio .perfShortGrid .perfThumbnailFallback small,
+#performancePortfolio .refShorts .perfVideoMeta > span,
+#performancePortfolio .refShorts .perfVideoMeta svg,
+#performancePortfolio .refContactGrid a > svg,
+#performancePortfolio .perfValue-green { color: #007f9f; }
+
+#performancePortfolio .perfNav .perfButtonPrimary,
+#performancePortfolio .refPlay,
+#performancePortfolio .refShorts .perfPlayButton { background: #007f9f; }
+#performancePortfolio .perfNav .refVectorIcon { width: 16px; height: 16px; filter: brightness(0) saturate(100%) invert(42%) sepia(91%) saturate(834%) hue-rotate(149deg) brightness(92%) contrast(101%); }
+#performancePortfolio .refContactGrid .refVectorIcon { width: 26px; height: 26px; flex: 0 0 26px; object-fit: contain; filter: brightness(0) saturate(100%) invert(42%) sepia(91%) saturate(834%) hue-rotate(149deg) brightness(92%) contrast(101%); }
+#performancePortfolio .perfNav .refVectorIconOutline,
+#performancePortfolio .refContactGrid .refVectorIconOutline { filter: none; }
+#performancePortfolio .perfNav .perfButtonPrimary:hover,
+#performancePortfolio .perfButtonPrimary:hover { background: #00627d; }
+#performancePortfolio .refContactGrid a:hover { border-color: #007f9f; background: #eff8fa; }
+#performancePortfolio .refMetric .perfMetric-emphasis-mid { color: #2a8fa8; }
+#performancePortfolio .refMetric .perfMetric-emphasis-high,
+#performancePortfolio .refMetric .perfMetric-emphasis-max { color: #007f9f; }
+#performancePortfolio .refMetric .perfMetric-emphasis-time { color: #73afbd; }
+#performancePortfolio .refFrameOne { background: #edf7f9; }
+#performancePortfolio .refFrameTwo { background: #e3f2f5; }
+
+#performancePortfolio .refWorkDots i:first-child { background: #ccd3dc; }
+#performancePortfolio .refWorkIndex[data-active="long"] .refWorkDots i:first-child,
+#performancePortfolio .refWorkIndex[data-active="short"] .refWorkDots i:nth-child(2) { background: #007f9f; transform: scale(1.25); }
+#performancePortfolio .refWorkIndex button { display: grid; grid-template-columns: 27px minmax(0, 1fr); gap: 7px; align-items: start; padding: 0; border: 0; background: transparent; color: #686a65; font: 400 12px/1.3 var(--font-geist), sans-serif; text-align: left; cursor: pointer; }
+#performancePortfolio .refWorkIndex button b { color: #686a65; font-size: 14px; font-weight: 500; }
+#performancePortfolio .refWorkIndex button[aria-pressed="true"] b { color: #007f9f; font-size: 24px; font-weight: 700; line-height: 1; }
+#performancePortfolio .refWorkIndex button[aria-pressed="true"] span { color: #292a27; font-weight: 600; }
+#performancePortfolio .refWorkContent { margin-left: 196px; animation: refWorkEnter .32s ease both; }
+#performancePortfolio .refWorkContent.refWorkSlideReverse { animation-name: refWorkEnterReverse; }
+@keyframes refWorkEnter { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes refWorkEnterReverse { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+
+@media (max-width: 900px) {
+  #performancePortfolio .refWorkContent { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #performancePortfolio .refWorkContent { animation: none; }
+}
+
+#performancePortfolio .refAbout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+  padding-block: 54px 64px;
+}
+#performancePortfolio .refAboutIdentity { display: flex; align-items: center; gap: 22px; }
+#performancePortfolio .refAboutIdentity img { width: 104px; height: 104px; flex: 0 0 104px; object-fit: contain; }
+#performancePortfolio .refAboutIdentity p { margin: 0 0 6px; color: #007f9f; font-size: 12px; font-weight: 650; }
+#performancePortfolio .refAboutIdentity h2 { margin: 0; color: #292a27; font: 650 clamp(28px, 4vw, 42px)/1.05 var(--font-geist), sans-serif; }
+#performancePortfolio .refPlatformStats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+#performancePortfolio .refPlatformPanel + .refPlatformPanel { padding-left: 32px; border-left: 1px solid #e5e5e0; }
+#performancePortfolio .refPlatformPanel h3 { margin: 0 0 8px; color: #007f9f; font-size: 13px; font-weight: 700; }
+#performancePortfolio .refPlatformMetricGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 18px; margin: 0; }
+#performancePortfolio .refPlatformMetric { min-width: 0; padding: 15px 0 13px; border-top: 1px solid #e5e5e0; }
+#performancePortfolio .refPlatformMetric dt { color: #686a65; font-size: 11px; line-height: 1.35; }
+#performancePortfolio .refPlatformMetric dd { margin: 7px 0 0; color: #292a27; font-size: clamp(19px, 2.2vw, 27px); font-weight: 650; line-height: 1.1; overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  #performancePortfolio .refPlatformStats { gap: 22px; }
+  #performancePortfolio .refPlatformPanel + .refPlatformPanel { padding-left: 22px; }
+  #performancePortfolio .refPlatformMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+}
+
+@media (max-width: 640px) {
+  #performancePortfolio .refAbout { gap: 24px; padding-block: 38px 46px; }
+  #performancePortfolio .refAboutIdentity { gap: 16px; }
+  #performancePortfolio .refAboutIdentity img { width: 76px; height: 76px; flex-basis: 76px; }
+  #performancePortfolio .refPlatformStats { grid-template-columns: 1fr; gap: 24px; }
+  #performancePortfolio .refPlatformPanel + .refPlatformPanel { padding: 22px 0 0; border-top: 1px solid #e5e5e0; border-left: 0; }
+  #performancePortfolio .refPlatformMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
