@@ -9,7 +9,7 @@ const cases = [
   {
     videoId: "icm9alsl8Ow",
     title: "O ÚNICO GUIA QUE VOCÊ PRECISA PRA VOLTAR PRO FISCH",
-    description: "Vídeo longo de gaming · 48 dias de dados",
+    description: "Gameplay/Guia",
     metrics: [
       ["15,7K", "Views", ""],
       ["731,9h", "Tempo de exibição", "+421,9h acima do usual"],
@@ -19,7 +19,7 @@ const cases = [
   {
     videoId: "q525rGMtMBo",
     title: "Novo melhor spot de farm de dinheiro Fisch",
-    description: "Vídeo tático curto · 30 dias de dados",
+    description: "Vídeo de gameplay teórico + tutorial",
     metrics: [
       ["2,6K", "Views", ""],
       ["74,1h", "Tempo de exibição", ""],
@@ -29,7 +29,7 @@ const cases = [
   {
     videoId: "p1Z4QvuBQjM",
     title: "Farmando de Noob até o Pro no Fisch",
-    description: "Vídeo de gaming · primeiras 24h",
+    description: "Vídeo de gameplay (primeiras 24h)",
     metrics: [
       ["4K", "Views", ""],
       ["456,7h", "Tempo de exibição", ""],
