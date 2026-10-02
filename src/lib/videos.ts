@@ -85,7 +85,7 @@ export async function getVideo(url: string): Promise<Video> {
 		const metadata = await oEmbed(url, "https://www.instagram.com/api/v1/oembed/?url=");
 		return {
 			url,
-			title: "Reel de gameplay no Fisch",
+			title: "Vídeo com Campanha de divulgação AstroBlox!",
 			thumbnail: metadata?.thumbnail_url ? `/api/instagram-thumbnail/${instagramVideo.id}` : "",
 			platform: "instagram",
 			embedUrl: `https://www.instagram.com/${instagramVideo.type}/${instagramVideo.id}/embed`,

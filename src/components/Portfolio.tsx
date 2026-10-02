@@ -29,7 +29,7 @@ const cases = [
   {
     videoId: "p1Z4QvuBQjM",
     title: "Farmando de Noob até o Pro no Fisch",
-    description: "Vídeo de gameplay (primeiras 24h)",
+    description: "Vídeo de gameplay",
     metrics: [
       ["4K", "Views", ""],
       ["456,7h", "Tempo de exibição", ""],
