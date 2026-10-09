@@ -1,7 +1,13 @@
-export type Video = { url: string; title: string; thumbnail: string; platform: "youtube" | "tiktok" | "instagram"; embedUrl: string; viewCount?: string };
+export type Video = { url: string; title: string; thumbnail: string; platform: "youtube" | "tiktok" | "instagram"; embedUrl: string; viewCount?: string; likeCount?: string };
 
 type YouTubeStatisticsResponse = {
-	items?: { statistics?: { viewCount?: string } }[];
+	items?: {
+		snippet?: {
+			title?: string;
+			thumbnails?: Record<string, { url: string; width?: number; height?: number }>;
+		};
+		statistics?: { viewCount?: string; likeCount?: string };
+	}[];
 };
 
 const tiktokFallbackTitles: Record<string, string> = {
@@ -43,20 +49,38 @@ async function oEmbed(url: string, endpoint: string, revalidate = 3600) {
 	}
 }
 
-async function youtubeViewCount(videoId: string) {
+async function youtubeStatistics(videoId: string) {
 	const apiKey = process.env.YOUTUBE_API_KEY;
-	if (!apiKey) return undefined;
+	if (!apiKey) {
+		if (process.env.NODE_ENV !== "production") console.warn("[portfolio] YOUTUBE_API_KEY is not available to the server.");
+		return undefined;
+	}
 
 	const apiUrl = new URL("https://www.googleapis.com/youtube/v3/videos");
-	apiUrl.searchParams.set("part", "statistics");
+	apiUrl.searchParams.set("part", "snippet,statistics");
 	apiUrl.searchParams.set("id", videoId);
 	apiUrl.searchParams.set("key", apiKey);
 
 	try {
-		const response = await fetch(apiUrl, { next: { revalidate: 300 } });
-		if (!response.ok) return undefined;
+		const response = await fetch(apiUrl, { next: { revalidate: 30 } });
+		if (!response.ok) {
+			console.error(`[portfolio] YouTube Data API returned ${response.status} for video ${videoId}.`);
+			return undefined;
+		}
 		const data = await response.json() as YouTubeStatisticsResponse;
-		return data.items?.[0]?.statistics?.viewCount;
+		const item = data.items?.[0];
+		const thumbnails = item?.snippet?.thumbnails;
+		const thumbnail = thumbnails?.maxres?.url
+			|| thumbnails?.standard?.url
+			|| thumbnails?.high?.url
+			|| thumbnails?.medium?.url
+			|| thumbnails?.default?.url;
+		return {
+			title: item?.snippet?.title,
+			thumbnail,
+			viewCount: item?.statistics?.viewCount,
+			likeCount: item?.statistics?.likeCount,
+		};
 	} catch {
 		return undefined;
 	}
@@ -65,17 +89,18 @@ async function youtubeViewCount(videoId: string) {
 export async function getVideo(url: string): Promise<Video> {
 	const youtubeVideoId = youtubeId(url);
 	if (youtubeVideoId) {
-		const [metadata, viewCount] = await Promise.all([
+		const [metadata, youtubeData] = await Promise.all([
 			oEmbed(url, "https://www.youtube.com/oembed?format=json&url="),
-			youtubeViewCount(youtubeVideoId),
+			youtubeStatistics(youtubeVideoId),
 		]);
 		return {
 			url,
-			title: cleanTitle(metadata?.title, "YouTube video"),
-			thumbnail: `https://i.ytimg.com/vi/${youtubeVideoId}/maxresdefault.jpg`,
+			title: cleanTitle(youtubeData?.title || metadata?.title, "YouTube video"),
+			thumbnail: youtubeData?.thumbnail || `https://i.ytimg.com/vi/${youtubeVideoId}/maxresdefault.jpg`,
 			platform: "youtube",
 			embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeVideoId}`,
-			viewCount,
+			viewCount: youtubeData?.viewCount,
+			likeCount: youtubeData?.likeCount,
 		};
 	}
 

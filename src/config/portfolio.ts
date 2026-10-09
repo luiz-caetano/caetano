@@ -8,6 +8,7 @@ export const portfolio = {
   // ADD OR REMOVE LINKS ONLY. Titles and thumbnails are loaded automatically.
   // YouTube: regular videos, youtu.be links, and /shorts/ links all work.
   youtubeVideos: [
+    "https://youtu.be/H1xkHsPXmQ8?si=D6dCuUWCoshmocZs",
     "https://www.youtube.com/watch?v=q525rGMtMBo&t=9s",
     "https://www.youtube.com/watch?v=icm9alsl8Ow&t=14s",
     "https://www.youtube.com/watch?v=p1Z4QvuBQjM",
