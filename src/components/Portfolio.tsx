@@ -201,7 +201,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
   if (!locale) return (
     <main className="languageGate" aria-label="Choose your language">
       <div className="languageGateCard">
-        <span className="languageGateBrand">@luizintws</span>
+        <span className="languageGateBrand">Luiz Caetano</span>
         <h1>Choose your language</h1>
         <p>Escolha seu idioma</p>
         <div className="languageGateOptions">
@@ -241,7 +241,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
     <div id="performancePortfolio">
       <header className="perfHeader">
         <nav className="perfNav" aria-label={english ? "Main navigation" : "Navegação principal"}>
-          <a className="perfLogo" href="#inicio">@luizintws</a>
+          <a className="perfLogo" href="#inicio">Luiz Caetano</a>
           <div className={`perfNavLinks${mobileMenuOpen ? " isOpen" : ""}`}>
             <a href="#resultados" onClick={() => setMobileMenuOpen(false)}>{english ? "Results" : "Resultados"}</a>
             <a href="#numeros" onClick={() => setMobileMenuOpen(false)}>{english ? "About Me" : "Sobre mim"}</a>
@@ -291,7 +291,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
 
           <section className="refSlide refAbout" id="numeros">
             <div className="refAboutIdentity">
-              <img src="/images/logo_transparente.png" alt="Logo do canal luizintws" />
+              <img src="/images/logo_transparente.png" alt="Logo de Luiz Caetano" />
               <div>
                 <p>{english ? "A little about me" : "Sobre mim"}</p>
                 <h2>{english ? "I turn gameplay into stories." : "Transformo gameplay em histórias."}</h2>
@@ -373,7 +373,7 @@ export default function Portfolio({ youtube, shorts }: { youtube: Video[]; short
         </main>
       </div>
 
-      <footer className="refFooter"><div className="refContainer">luizintws · {english ? "YouTube video editing, with measurable results" : "Edição de vídeo para YouTube, com resultado medido"}</div></footer>
+      <footer className="refFooter"><div className="refContainer">Luiz Caetano · {english ? "YouTube video editing, with measurable results" : "Edição de vídeo para YouTube, com resultado medido"}</div></footer>
 
       {activeVideo && (
         <div className="perfModal" role="dialog" aria-modal="true" aria-label={`Reproduzindo ${activeVideo.title}`} onClick={() => setActiveVideo(null)}>

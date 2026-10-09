@@ -640,7 +640,7 @@
   color: #f4f5f2;
 }
 #performancePortfolio .perfHeader { border-color: #303539; background: rgb(17 19 21 / 94%); }
-#performancePortfolio .perfLogo { color: #f4f5f2; }
+#performancePortfolio .perfLogo { color: #f4f5f2; text-transform: none !important; }
 #performancePortfolio .perfNavLinks { color: #c4c9ca; }
 #performancePortfolio .perfLanguageSwitch { border-color: #42494d; }
 #performancePortfolio .perfLanguageSwitch button { color: #c4c9ca; }
