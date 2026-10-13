@@ -1,0 +1,66 @@
+body:has(.simplePortfolio) { background: #080808; color: #f6f4f8; cursor: url('/cursor/Zelda-Normal.cur'), auto; }
+.simplePortfolio a, .simplePortfolio button { cursor: url('/cursor/Zelda-Link.cur'), pointer; }
+.simplePortfolio input, .simplePortfolio textarea { cursor: url('/cursor/Zelda-Text.cur'), text; }
+.simplePortfolio p, .simplePortfolio h1, .simplePortfolio h2, .simplePortfolio h3, .simplePortfolio footer span { cursor: url('/cursor/Zelda-Text.cur'), text; }
+.simplePortfolio { --purple: #a77aff; --muted: #aaa5b0; --panel: #121114; --border: #30283d; min-height: 100vh; background: #080808; color: #f6f4f8; font-family: var(--font-geist), Arial, sans-serif; line-height: 1.5; }
+.simplePortfolio * { box-sizing: border-box; }
+.simplePortfolio a { color: inherit; text-decoration: none; }
+.simpleHeader { position: sticky; z-index: 10; top: 0; display: flex; height: 68px; align-items: center; justify-content: space-between; padding: 0 max(6vw, calc((100vw - 1160px) / 2)); border-bottom: 1px solid #211d27; background: rgb(8 8 8 / 92%); backdrop-filter: blur(14px); }
+.simpleBrand { display: flex; align-items: center; width: 148px; height: 48px; }
+.simpleBrand img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.simpleHeader nav { display: flex; gap: 28px; color: #dedbe2; font: 400 14px var(--font-geist), Arial, sans-serif; text-transform: none; }
+.simpleHeader nav a:hover, .simpleFooter a:hover { color: var(--purple); }
+.simpleContactLink { display: inline-flex; align-items: center; gap: 7px; color: var(--purple) !important; font-size: 13px; }
+.simpleMain { width: min(1080px, calc(100% - 48px)); max-width: none; margin: 0 auto; padding: 40px 0 0; background: transparent; }
+.simpleIntro { display: grid; min-height: 385px; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 40px; scroll-margin-top: 90px; }
+.simpleIntroCopy { max-width: 560px; padding: 28px 0; }
+.simpleEyebrow { color: var(--purple); font-size: 12px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.simpleIntro h1 { max-width: 620px; margin: 15px 0 17px; font-size: clamp(36px, 5.1vw, 62px); font-weight: 750; line-height: 1.05; letter-spacing: -.045em; }
+.simpleIntroCopy > p { max-width: 490px; margin: 0 0 24px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.simpleButton { display: inline-flex; min-height: 45px; align-items: center; justify-content: center; gap: 10px; padding: 0 17px; border: 1px solid var(--purple); border-radius: 7px; background: var(--purple); color: #130b1e !important; font-size: 13px; font-weight: 700; transition: transform .2s, background .2s; }
+.simpleButton:hover { transform: translateY(-2px); background: #bd9cff; }
+.simpleLogoFrame { display: grid; min-height: 300px; place-items: center; }
+.simpleLogoFrame img { display: block; width: min(320px, 80%); max-height: 300px; object-fit: contain; filter: drop-shadow(0 0 48px rgb(146 91 230 / 15%)); }
+.simpleSection { padding: 70px 0 10px; scroll-margin-top: 80px; }
+.simpleSectionHeading { margin-bottom: 22px; }
+.simpleSectionHeading h2, .simpleContact h2 { margin: 7px 0 0; font-size: clamp(26px, 3.3vw, 36px); line-height: 1.18; letter-spacing: -.035em; }
+.simpleSectionHeading > p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.simpleToolGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.simpleCard { display: flex; min-height: 96px; align-items: center; gap: 15px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); }
+.simpleToolIcon { display: block; width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; }
+.simpleCard h3 { margin: 0 0 5px; font-size: 14px; font-weight: 700; }
+.simpleCard p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.simpleVideoGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 18px; }
+.simpleVideoCard { min-width: 0; }
+.simpleThumbnail { position: relative; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--border); border-radius: 9px; background: #17131d; }
+.simpleShortGrid .simpleThumbnail { aspect-ratio: 9 / 16; }
+.simpleThumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.simpleVideoCard:hover .simpleThumbnail img { transform: scale(1.035); }
+.simpleThumbnail > span { position: absolute; right: 10px; bottom: 10px; left: 10px; display: flex; justify-content: space-between; color: white; font-size: 11px; text-shadow: 0 1px 5px #000; }
+.simpleVideoCard h3 { overflow: hidden; margin: 10px 0 7px; font-size: 14px; font-weight: 600; line-height: 1.4; text-overflow: ellipsis; }
+.simpleContact { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-top: 75px; padding: 30px 0 38px; border-top: 1px solid var(--border); scroll-margin-top: 80px; }
+.simpleContact h2 { max-width: 580px; }
+.simpleFooter { display: flex; min-height: 66px; align-items: center; justify-content: space-between; gap: 20px; padding: 0 max(6vw, calc((100vw - 1160px) / 2)); border-top: 1px solid #211d27; color: var(--muted); font-size: 12px; }
+.simpleFooter a { display: inline-flex; align-items: center; gap: 4px; }
+@media (max-width: 700px) {
+  .simpleHeader { height: 60px; padding: 0 18px; }
+  .simpleBrand { width: 92px; height: 42px; }
+  .simpleHeader nav { gap: 10px; font-size: 11px; }
+  .simpleContactLink { display: none; }
+  .simpleMain { width: calc(100% - 36px); padding-top: 22px; }
+  .simpleIntro { min-height: 0; grid-template-columns: 1fr; gap: 0; }
+  .simpleIntroCopy { padding: 38px 0 10px; }
+  .simpleIntro h1 { max-width: 540px; font-size: clamp(38px, 11vw, 58px); }
+  .simpleIntroCopy > p { font-size: 14px; }
+  .simpleLogoFrame { min-height: 170px; }
+  .simpleLogoFrame img { width: 165px; max-height: 165px; }
+  .simpleSection { padding-top: 52px; }
+  .simpleToolGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .simpleCard { min-height: 92px; padding: 13px; }
+  .simpleVideoGrid { gap: 20px 12px; }
+  .simpleVideoCard h3 { font-size: 12px; }
+  .simpleContact { align-items: flex-start; flex-direction: column; margin-top: 55px; padding-top: 25px; }
+  .simpleFooter { flex-wrap: wrap; justify-content: flex-start; padding: 17px 18px; }
+  .simpleFooter span { flex-basis: 100%; }
+}
+@media (max-width: 390px) { .simpleHeader { padding-inline: 12px; } .simpleHeader nav { gap: 8px; font-size: 10px; } .simpleToolGrid { grid-template-columns: 1fr; } }

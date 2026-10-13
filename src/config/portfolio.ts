@@ -21,6 +21,6 @@ export const portfolio = {
     "https://www.tiktok.com/@luizintws/video/7682167213461081365",
   ],
 
-  tools: [["Adobe Premiere Pro", "Main editing workflow"], ["After Effects", "Motion graphics & effects"], ["Photoshop", "Thumbnails & visual assets"], ["DaVinci Resolve", "Color & finishing"], ["OBS Studio", "Gameplay recording"], ["Audacity", "Audio cleanup"]],
+  tools: [["Adobe Premiere Pro", "Edição de vídeo"], ["DaVinci Resolve", "Edição e finalização de vídeo"]],
   testimonials: [] as { quote: string; name: string; role: string }[]
 };
